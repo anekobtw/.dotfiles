@@ -149,6 +149,8 @@ local formatters_by_ft = {
 	rust = { "rustfmt" },
 	javascript = { "prettier" },
 	typescript = { "prettier" },
+  typescriptreact = { "prettier" },
+  javascriptreact = { "prettier" },
 	html = { "prettier" },
 	css = { "prettier" },
 	json = { "prettier" },
@@ -174,4 +176,9 @@ require("line-number-change-mode").setup({
 		V = { fg = palette.mauve },
 		R = { fg = palette.maroon },
 	},
+})
+
+-- ========= SNIPPETS =========
+require("luasnip.loaders.from_lua").load({
+  paths = "~/.config/nvim/lua/snippets"
 })
