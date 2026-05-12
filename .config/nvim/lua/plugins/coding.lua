@@ -4,22 +4,24 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter").setup({})
-		end,
-	},
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			local npairs = require("nvim-autopairs")
-			npairs.setup({})
-
-			local cmp_ok, cmp = pcall(require, "cmp")
-			if cmp_ok then
-				local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			local ok, configs = pcall(require, "nvim-treesitter.configs")
+			if ok then
+				configs.setup({
+					highlight = { enable = true },
+					indent = { enable = true },
+					auto_install = true,
+				})
 			end
 		end,
+	},
+	{ "windwp/nvim-autopairs", event = "InsertEnter" },
+	{
+		"nvim-telescope/telescope.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {} },
 	{ "windwp/nvim-ts-autotag", opts = {} },

@@ -14,14 +14,6 @@ return {
 		},
 	},
 	{ "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
-	{
-		"nvim-tree/nvim-tree.lua",
-		opts = {
-			view = { width = 34, side = "left" },
-			renderer = { group_empty = true },
-			filters = { dotfiles = false },
-		},
-	},
 	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },
 	{ "sethen/line-number-change-mode.nvim" },
 	{

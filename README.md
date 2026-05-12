@@ -1,53 +1,51 @@
-# config
+# setup
 
-### Install scoop and git
+## tools i use
 
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-scoop install git
-```
+- os/session: linux + wayland + hyprland
+- terminal: ghostty
+- shell: zsh
+- prompt: oh my posh (`catppuccin_macchiato` theme)
+- editor: neovim
+- bar: waybar
+- lock screen: hyprlock
+- wallpaper: hyprpaper
+- network tray: nm-applet
+- clipboard: wl-clipboard + cliphist
+- screenshots: grim + slurp
+- file manager: dolphin
+- browser: firefox
 
-### Clone the repo
+## nvim
 
-```
-git clone https://github.com/anekobtw/config.git
-cd config
-```
-
-## Terminal and font
-
-- **Font - Maple Mono Nerd Font**
-  ```
-  scoop bucket add nerd-fonts
-  scoop install Maple-Mono-NF
-  ```
-
-- **Terminal - Windows Terminal**\
-  https://github.com/microsoft/terminal
-  
-  - **Install config**
-    
-    ```
-    Copy-Item -Force terminal/settings.json "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-    ```
-
-## Neovim
+before copying the config, install lazy.nvim first
 
 ```
-scoop install neovim
-Copy-Item -Recurse -Force .\nvim\* "$env:LOCALAPPDATA\nvim"
-
-scoop install nodejs
-scoop install stylua
-npm install -g prettier
-npm install -g vscode-langservers-extracted
-nvim +"MasonInstall pyright clangd cssls stylua" +qall
+git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
 ```
 
-## VS Code setup
+# nvidia problems
+
+i’ve been getting a black screen after closing the lid, likely due to nvidia not handling suspend properly with wayland. i couldn't fix the issue, so i’ve disabled lid-triggered suspend completely.
 
 ```
-Copy-Item -Force .\vscode\settings.json "$env:APPDATA\Code\User\settings.json"
-Get-Content .\vscode\extensions.txt | ForEach-Object { code --install-extension $_ }
+sudo nano /etc/systemd/logind.conf
 ```
+
+add this:
+
+```
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+```
+
+restart
+
+```
+sudo systemctl restart systemd-logind
+```
+
+# vscode
+
+i'm no longer using vscode but i saved my extensions in `vscode` folder, so you might check it.
