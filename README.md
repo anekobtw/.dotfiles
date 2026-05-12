@@ -2,7 +2,7 @@
 
 ## tools i use
 
-- os/session: linux + wayland + hyprland
+- os/session: arch linux + wayland + hyprland
 - terminal: ghostty
 - shell: zsh
 - prompt: oh my posh (`catppuccin_macchiato` theme)
@@ -11,8 +11,6 @@
 - lock screen: hyprlock
 - wallpaper: hyprpaper
 - network tray: nm-applet
-- clipboard: wl-clipboard + cliphist
-- screenshots: grim + slurp
 - file manager: dolphin
 - browser: firefox
 
