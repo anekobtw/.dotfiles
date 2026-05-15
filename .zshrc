@@ -10,11 +10,17 @@ SAVEHIST=10000
 
 bindkey -e
 
-alias ll='ls -lah'
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -lah --icons --group-directories-first'
 alias la='ls -A'
-alias ..='cd ..'
+alias cls='clear'
 
-export EDITOR=nano
+export EDITOR=nvim
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_macchiato.omp.json)"
+source /usr/share/nvm/init-nvm.sh
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
