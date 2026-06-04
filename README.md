@@ -16,6 +16,12 @@ my editor is nvim, but before copying the config (located in `.config/nvim`), in
 git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
 ```
 
+## rofi
+
+rofi config was taken from:
+
+https://github.com/binnewbs/arch-hyprland/blob/main/.config/rofi/config.rasi
+
 # nvidia problems
 
 i’ve been getting a black screen after closing the lid, likely due to nvidia not handling suspend properly with wayland. i couldn't fix the issue, so i’ve disabled lid-triggered suspend completely.
@@ -37,7 +43,3 @@ restart
 ```
 sudo systemctl restart systemd-logind
 ```
-
-# vscode
-
-i'm no longer using vscode but i saved my extensions in `vscode` folder, so you might check it.
