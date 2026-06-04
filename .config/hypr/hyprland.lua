@@ -13,6 +13,13 @@ hl.monitor({
 	scale = 1,
 })
 
+hl.layer_rule({
+	match = {
+		namespace = "rofi",
+	},
+	no_anim = true,
+})
+
 hl.config({
 	binds = { allow_workspace_cycles = true },
 
@@ -63,6 +70,7 @@ hl.bind(mod .. " + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mod .. " + R", hl.dsp.exec_cmd("rofi -show run"))
 
 hl.bind("PRINT", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 
