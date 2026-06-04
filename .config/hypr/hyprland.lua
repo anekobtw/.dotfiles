@@ -62,6 +62,7 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
 hl.bind(mod .. " + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 
 hl.bind("PRINT", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 

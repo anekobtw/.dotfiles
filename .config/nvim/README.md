@@ -1,23 +1,14 @@
 # Neovim Shortcuts
 
-This file lists the custom shortcuts currently configured in this setup.
-
-## Leader key
-
-- Leader: `<Space>`
+Leader key is `<Space>`
 
 ## Global keymaps
 
-- `<C-s>` (Normal, Insert): Save current buffer
-- `<C-b>` (Normal): Toggle NvimTree
+- `<C-s>` (Normal, Insert): Save current file
 - `<leader>p` (Normal): Open diagnostic float
 - `<leader>f` (Normal): Format current file (Conform)
 
 ## Plugin keymaps
-
-### Luxterm
-
-- `<C-j>`: Toggle terminal manager
 
 ### Comment.nvim (default mappings)
 

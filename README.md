@@ -1,22 +1,16 @@
 # setup
 
-## tools i use
+## os
 
-- os/session: arch linux + wayland + hyprland
-- terminal: ghostty
-- shell: zsh
-- prompt: oh my posh (`catppuccin_macchiato` theme)
-- editor: neovim
-- bar: waybar
-- lock screen: hyprlock
-- wallpaper: hyprpaper
-- network tray: nm-applet
-- file manager: dolphin
-- browser: firefox
+i use arch btw
 
-## nvim
+## terminal
 
-before copying the config, install lazy.nvim first
+i'm using `ghostty` with `zsh` shell (config can be found in `.zshrc`). additionally, i use oh my posh (`.config/oh-my-posh`)
+
+## editor
+
+my editor is nvim, but before copying the config (located in `.config/nvim`), install lazy.nvim first
 
 ```
 git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim

@@ -73,6 +73,7 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"ts_ls",
 		"yamlls",
+		"jdtls",
 	},
 })
 
@@ -84,6 +85,9 @@ require("mason-tool-installer").setup({
 		"prettierd",
 		"shfmt",
 		"stylua",
+		"jdtls",
+		"google-java-format",
+		"java-test",
 	},
 	auto_update = false,
 	run_on_start = true,
@@ -170,6 +174,7 @@ require("conform").setup({
 		css = { "prettier" },
 		json = { "prettier" },
 		yaml = { "prettier" },
+		java = { "google-java-format" },
 	},
 	default_format_opts = {
 		lsp_fallback = true,
