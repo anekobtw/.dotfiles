@@ -20,7 +20,7 @@ git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.n
 
 rofi config was taken from:
 
-https://github.com/binnewbs/arch-hyprland/blob/main/.config/rofi/config.rasi
+https://github.com/binnewbs/arch-hyprland
 
 # nvidia problems
 
