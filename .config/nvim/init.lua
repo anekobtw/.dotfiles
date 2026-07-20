@@ -3,6 +3,7 @@ require("config.lazy")
 -- BASIC
 vim.g.mapleader = " "
 
+vim.opt.guicursor = "n-v-c-i:block"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.number = true
@@ -21,7 +22,7 @@ vim.opt.showmode = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("rose-pine-main")
 
 -- KEYMAPS
 vim.keymap.set({ "n", "i" }, "<C-s>", function()
@@ -31,27 +32,6 @@ vim.keymap.set({ "n", "i" }, "<C-s>", function()
 end, { silent = true })
 
 vim.keymap.set("n", "<leader>p", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "fzf", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "rg", builtin.live_grep, { desc = "Telescope live grep" })
-
--- STATUSLINE
-require("lualine").setup({
-	options = { theme = "catppuccin-macchiato" },
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch" },
-		lualine_c = { "filename" },
-		lualine_x = {},
-		lualine_y = {
-			function()
-				return os.date("%I:%M %p")
-			end,
-		},
-		lualine_z = { "location" },
-	},
-})
 
 -- SNIPPETS
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
@@ -149,13 +129,6 @@ cmp.setup.cmdline(":", {
 	},
 })
 
--- AUTOPAIRS
-local npairs = require("nvim-autopairs")
-npairs.setup({})
-
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
 -- FORMATTERS
 require("conform").setup({
 	formatters_by_ft = {
@@ -186,15 +159,3 @@ vim.keymap.set("n", "<leader>f", function()
 	require("conform").format({ async = true })
 end, { desc = "Format file" })
 
--- LINE NUMBERS
-local palette = require("catppuccin.palettes").get_palette()
-
-require("line-number-change-mode").setup({
-	mode = {
-		n = { fg = palette.blue },
-		i = { fg = palette.green },
-		v = { fg = palette.mauve },
-		V = { fg = palette.mauve },
-		R = { fg = palette.maroon },
-	},
-})

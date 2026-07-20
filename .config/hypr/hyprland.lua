@@ -11,6 +11,7 @@ hl.monitor({
 	mode = "1920x1080@144",
 	position = "auto",
 	scale = 1,
+  mirror = "eDP-1"
 })
 
 hl.layer_rule({
@@ -59,7 +60,7 @@ hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "quick" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "quick" })
 hl.animation({ leaf = "border", enabled = true, speed = 1, bezier = "quick" })
 hl.animation({ leaf = "fade", enabled = true, speed = 10, bezier = "quick" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 4, bezier = "quick" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1, bezier = "quick" })
 
 -- binds
 local mod = "SUPER"

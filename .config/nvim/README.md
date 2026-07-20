@@ -22,6 +22,12 @@ Leader key is `<Space>`
 - `cs` + old + new (Normal): Change surrounding characters
 - `ds` + surround (Normal): Delete surrounding characters
 
+### fff (fuzzy finder)
+
+- `ff` (Normal): FFFind files
+- `fg` (Normal): LiFFFe grep
+- `fw` (Normal): Search current word / selection
+
 ## Completion keymaps (nvim-cmp)
 
 These mappings apply while the completion menu is active.
@@ -29,4 +35,3 @@ These mappings apply while the completion menu is active.
 - `<Tab>`: Select next completion item
 - `<S-Tab>`: Select previous completion item
 - `<CR>`: Confirm selected completion item
-

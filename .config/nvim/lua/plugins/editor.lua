@@ -1,21 +1,49 @@
 return {
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{ "nvim-tree/nvim-web-devicons" },
-	{ "nvim-lualine/lualine.nvim", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{ "rose-pine/neovim", name = "rose-pine", priority = 1000 },
 	{
-		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
-		opts = {
-			options = {
-				mode = "tabs",
-				always_show_bufferline = false,
-				separator_style = "slant",
-			},
-		},
+		"nvim-lualine/lualine.nvim",
+		lazy = false,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "catppuccin-macchiato",
+				},
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
+					lualine_c = { "filename" },
+					lualine_x = {},
+					lualine_y = {
+						function()
+							return os.date("%I:%M %p")
+						end,
+					},
+					lualine_z = { "location" },
+				},
+			})
+		end,
 	},
 	{ "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
-	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },
-	{ "sethen/line-number-change-mode.nvim" },
+	{
+		"sethen/line-number-change-mode.nvim",
+		dependencies = {
+			"catppuccin/nvim",
+		},
+		config = function()
+			local palette = require("catppuccin.palettes").get_palette()
+
+			require("line-number-change-mode").setup({
+				mode = {
+					n = { fg = palette.blue },
+					i = { fg = palette.green },
+					v = { fg = palette.mauve },
+					V = { fg = palette.mauve },
+					R = { fg = palette.maroon },
+				},
+			})
+		end,
+	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
