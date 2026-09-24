@@ -17,13 +17,14 @@ alias cls='clear'
 
 export EDITOR=nvim
 
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_macchiato.omp.json)"
+eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Created by `pipx` on 2026-06-09 06:49:14
 export PATH="$PATH:/home/anekobtw/.local/bin"
 export PATH="$HOME/.bun/bin:$PATH"
 

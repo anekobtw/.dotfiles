@@ -1,8 +1,6 @@
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("nm-applet")
-	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
 
@@ -11,13 +9,11 @@ hl.monitor({
 	mode = "1920x1080@144",
 	position = "auto",
 	scale = 1,
-  mirror = "eDP-1"
+	mirror = "eDP-1",
 })
 
 hl.layer_rule({
-	match = {
-		namespace = "rofi",
-	},
+	match = { namespace = "rofi" },
 	no_anim = true,
 })
 
@@ -25,8 +21,6 @@ hl.config({
 	binds = { allow_workspace_cycles = true },
 
 	general = {
-		gaps_in = 16,
-		gaps_out = 24,
 		border_size = 3,
 		col = {
 			active_border = "rgba(89b4faee)",
@@ -35,11 +29,18 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 16,
+		rounding = 8,
+		active_opacity = 1.0,
+		inactive_opacity = 0.50,
 		blur = {
 			enabled = true,
-			size = 6,
-			passes = 2,
+			size = 8,
+			passes = 3,
+			vibrancy = 0.18,
+			vibrancy_darkness = 0.10,
+			noise = 0.015,
+			contrast = 0.95,
+			brightness = 0.90,
 		},
 	},
 
@@ -53,13 +54,12 @@ hl.config({
 })
 
 -- animations
-hl.curve("wind", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
 hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "quick" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "quick" })
 hl.animation({ leaf = "border", enabled = true, speed = 1, bezier = "quick" })
-hl.animation({ leaf = "fade", enabled = true, speed = 10, bezier = "quick" })
+hl.animation({ leaf = "fade", enabled = true, speed = 4, bezier = "quick" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 1, bezier = "quick" })
 
 -- binds
@@ -84,12 +84,6 @@ hl.bind(mod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- workspaces
-hl.gesture({
-	fingers = 4,
-	direction = "horizontal",
-	action = "workspace",
-})
-
 for i = 1, 7 do
 	local key = i % 7
 	hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
@@ -118,4 +112,5 @@ hl.bind(
 	{ locked = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })

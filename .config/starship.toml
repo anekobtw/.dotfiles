@@ -1,0 +1,27 @@
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style) "
+style = "bold yellow"
+
+[battery]
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+[custom.volume]
+command = "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf \"%.0f%%\", $2 * 100}'"
+when = "true"
+format = "[$symbol$output]($style) "
+symbol = "󰕒 "
+style = "bold cyan"

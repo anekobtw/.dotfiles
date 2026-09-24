@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
+			"ibhagwan/fzf-lua",
 		},
 		opts = {},
 	},
