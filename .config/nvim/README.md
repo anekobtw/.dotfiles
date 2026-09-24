@@ -16,12 +16,6 @@ Leader key is `<Space>`
 - `gc` + motion (Normal): Toggle comment for a motion
 - `gc` (Visual): Toggle comment for selected lines
 
-### nvim-surround (default mappings)
-
-- `ys` + motion + surround (Normal): Add surrounding characters
-- `cs` + old + new (Normal): Change surrounding characters
-- `ds` + surround (Normal): Delete surrounding characters
-
 ### fff (fuzzy finder)
 
 - `ff` (Normal): FFFind files

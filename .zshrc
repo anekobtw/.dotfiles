@@ -11,8 +11,7 @@ SAVEHIST=10000
 bindkey -e
 
 alias ls='eza --icons --group-directories-first'
-alias ll='eza -lah --icons --group-directories-first'
-alias la='ls -A'
+alias la='eza -a --icons --group-directories-first'
 alias cls='clear'
 
 export EDITOR=nvim

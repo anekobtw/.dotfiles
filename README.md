@@ -6,7 +6,7 @@ i use arch btw
 
 ## terminal
 
-i'm using `ghostty` with `zsh` shell (config can be found in `.zshrc`). additionally, i use oh my posh (`.config/oh-my-posh`)
+i'm using `ghostty` with `zsh` shell (config can be found in `.zshrc`). for prompt, i use `starship` (`.config/starship.toml`)
 
 ## editor
 
