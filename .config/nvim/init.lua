@@ -1,3 +1,4 @@
+require("config.large-file")
 require("config.lazy")
 
 -- BASIC
@@ -32,9 +33,6 @@ vim.keymap.set({ "n", "i" }, "<C-s>", function()
 end, { silent = true })
 
 vim.keymap.set("n", "<leader>p", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-
--- SNIPPETS
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
 
 -- MASON, LSP, CMP
 require("mason").setup()
@@ -96,66 +94,4 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-
--- AUTOCOMPLETE
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		["<Tab>"] = cmp.mapping.select_next_item(),
-		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["ESC"] = cmp.mapping.abort(),
-	},
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer", keyword_length = 3 },
-		{ name = "path" },
-	},
-})
-
-cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "path" },
-		{ name = "cmdline" },
-	},
-})
-
--- FORMATTERS
-require("conform").setup({
-	formatters_by_ft = {
-		bash = { "shfmt" },
-		c = { "clang-format" },
-		cpp = { "clang-format" },
-		lua = { "stylua" },
-		markdown = { "prettierd", "prettier" },
-		python = { "black", "isort" },
-		rust = { "rustfmt" },
-		javascript = { "prettier" },
-		typescript = { "prettier" },
-		typescriptreact = { "prettier" },
-		javascriptreact = { "prettier" },
-		html = { "prettier" },
-		css = { "prettier" },
-		json = { "prettier" },
-		yaml = { "prettier" },
-		java = { "google-java-format" },
-	},
-	default_format_opts = {
-		lsp_fallback = true,
-		timeout_ms = 2000,
-	},
-})
-
-vim.keymap.set("n", "<leader>f", function()
-	require("conform").format({ async = true })
-end, { desc = "Format file" })
 

@@ -7,7 +7,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "catppuccin-macchiato",
+					theme = "rose-pine",
 				},
 				sections = {
 					lualine_a = { "mode" },
@@ -24,22 +24,21 @@ return {
 			})
 		end,
 	},
-	{ "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
 	{
 		"sethen/line-number-change-mode.nvim",
 		dependencies = {
-			"catppuccin/nvim",
+			"rose-pine",
 		},
 		config = function()
-			local palette = require("catppuccin.palettes").get_palette()
+			local palette = require("rose-pine.palette")
 
 			require("line-number-change-mode").setup({
 				mode = {
-					n = { fg = palette.blue },
-					i = { fg = palette.green },
-					v = { fg = palette.mauve },
-					V = { fg = palette.mauve },
-					R = { fg = palette.maroon },
+					n = { fg = palette.foam },
+					i = { fg = palette.pine },
+					v = { fg = palette.iris },
+					V = { fg = palette.iris },
+					R = { fg = palette.love },
 				},
 			})
 		end,
@@ -52,5 +51,17 @@ return {
 			indent = { char = "|" },
 			scope = { enabled = false },
 		},
+		config = function(_, opts)
+			local hooks = require("ibl.hooks")
+			hooks.register(hooks.type.ACTIVE, function(buf)
+				return not vim.b[buf].large_file
+			end)
+			require("ibl").setup(opts)
+		end,
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
+		opts = {},
 	},
 }

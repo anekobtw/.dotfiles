@@ -73,6 +73,6 @@ return {
 			},
 		},
 	},
-	{ "lewis6991/gitsigns.nvim", opts = {} },
+	{ "lewis6991/gitsigns.nvim", event = { "BufReadPre", "BufNewFile" }, opts = {} },
 	{ "windwp/nvim-ts-autotag", opts = {} },
 }
